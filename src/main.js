@@ -58,7 +58,7 @@ const builds = [
     title: 'In-House Unlock',
     subtitle: 'ECU unlock and full build',
     category: 'ECU',
-    image: '/media/launchlabs/in-house-ecu-unlock-full-build.jpg',
+    image: '/media/launchlabs/gallery-in-house-clean.jpg',
     href: 'https://www.instagram.com/launchlabs_/',
     copy:
       'Launch Labs post content highlights in-house ECU unlock work paired with a full build path.',
@@ -67,7 +67,7 @@ const builds = [
     title: 'Same-Day Unlock',
     subtitle: 'One-hour average turnaround',
     category: 'Unlock',
-    image: '/media/launchlabs/same-day-ecu-unlock.jpg',
+    image: '/media/launchlabs/shop-car.jpg',
     href: 'https://www.instagram.com/launchlabs_/',
     copy:
       'Public Launch Labs graphics promote same-day in-house ECU unlocks with an average one-hour turnaround.',
@@ -76,7 +76,7 @@ const builds = [
     title: 'Power Package',
     subtitle: 'More power, better deal',
     category: 'Offer',
-    image: '/media/launchlabs/performance-package.jpg',
+    image: '/media/launchlabs/gallery-bmw-rear-clean.jpg',
     href: 'https://www.instagram.com/launchlabs_/',
     copy:
       'Launch Labs offer creative promotes custom Stage 1 or Stage 2 tune packages with ECU unlock savings.',
@@ -85,7 +85,7 @@ const builds = [
     title: 'Stage 3 AMGs',
     subtitle: 'Mercedes-AMG build content',
     category: 'AMG',
-    image: '/media/launchlabs/stage-3-amgs.jpg',
+    image: '/media/launchlabs/gallery-stage3-amgs-clean.jpg',
     href: 'https://www.instagram.com/launchlabs_/',
     copy:
       'Launch Labs feed content includes Stage 3 AMG creative aimed at serious Mercedes performance work.',
@@ -112,25 +112,25 @@ const builds = [
     title: 'Aston / Lambo',
     subtitle: 'Exotic platform highlights',
     category: 'Exotics',
-    image: '/media/launchlabs/launch-reel-feb.jpg',
+    image: '/media/launchlabs/gallery-mclaren-road-clean.jpg',
     href: 'https://www.instagram.com/launchlabs_/',
     copy:
       'Launch Labs profile highlights include Aston Martin and Lamborghini platform categories.',
   },
   {
-    title: 'Porsche Support',
-    subtitle: 'Performance platform category',
-    category: 'Porsche',
-    image: '/media/launchlabs/launch-reel-aug.jpg',
+    title: 'McLaren Road Tune',
+    subtitle: 'Stage 1 supercar content',
+    category: 'McLaren',
+    image: '/media/launchlabs/gallery-mclaren-road-clean.jpg',
     href: 'https://www.instagram.com/launchlabs_/',
     copy:
-      'Porsche appears as a public profile highlight alongside the shop performance categories.',
+      'Public Launch Labs road content shows Stage 1 McLaren performance work alongside the shop platform categories.',
   },
   {
     title: 'TCU Calibration',
     subtitle: 'Transmission behavior and response',
     category: 'TCU',
-    image: '/media/launchlabs/in-house-ecu-unlock-full-build.jpg',
+    image: '/media/launchlabs/gallery-in-house-clean.jpg',
     href: 'https://www.instagram.com/launchlabs_/',
     copy:
       'The Launch Labs bio explicitly positions the brand around ECU and TCU tuning.',
@@ -210,7 +210,7 @@ function render() {
             id="hero-video"
             aria-label="Launch Labs performance tuning hero video"
             src="/media/launchlabs/hero-unlock.mp4"
-            poster="/media/launchlabs/in-house-ecu-unlock-full-build.jpg"
+            poster="/media/launchlabs/gallery-in-house-clean.jpg"
             autoplay
             muted
             loop
