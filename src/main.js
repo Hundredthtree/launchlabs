@@ -67,7 +67,7 @@ const builds = [
     title: 'Same-Day Unlock',
     subtitle: 'One-hour average turnaround',
     category: 'Unlock',
-    image: '/media/launchlabs/shop-car.jpg',
+    image: '/media/launchlabs/gallery-aston-palm-clean.jpg',
     href: 'https://www.instagram.com/launchlabs_/',
     copy:
       'Public Launch Labs graphics promote same-day in-house ECU unlocks with an average one-hour turnaround.',
@@ -103,7 +103,7 @@ const builds = [
     title: 'Performance Shop',
     subtitle: 'Houston, Villa Park, Naples, Boise',
     category: 'Shop',
-    image: '/media/launchlabs/shop-car.jpg',
+    image: '/media/launchlabs/gallery-db11-service-clean.jpg',
     href: 'https://www.instagram.com/launchlabs_/',
     copy:
       'A public Launch Labs reel lists in-house ECU unlock locations in Houston, Villa Park, Naples, and Boise.',
@@ -112,7 +112,7 @@ const builds = [
     title: 'Exotic Road Tune',
     subtitle: 'Supercar platform highlights',
     category: 'Exotics',
-    image: '/media/launchlabs/gallery-mclaren-road-clean.jpg',
+    image: '/media/launchlabs/gallery-aston-stage2-clean.jpg',
     href: 'https://www.instagram.com/launchlabs_/',
     copy:
       'Launch Labs public content and profile highlights position the shop around exotic performance platforms.',
@@ -121,7 +121,7 @@ const builds = [
     title: 'McLaren Road Tune',
     subtitle: 'Stage 1 supercar content',
     category: 'McLaren',
-    image: '/media/launchlabs/gallery-mclaren-road-clean.jpg',
+    image: '/media/launchlabs/gallery-mclaren-flames-clean.jpg',
     href: 'https://www.instagram.com/launchlabs_/',
     copy:
       'Public Launch Labs road content shows Stage 1 McLaren performance work alongside the shop platform categories.',
@@ -130,7 +130,7 @@ const builds = [
     title: 'TCU Calibration',
     subtitle: 'Transmission behavior and response',
     category: 'TCU',
-    image: '/media/launchlabs/gallery-in-house-clean.jpg',
+    image: '/media/launchlabs/gallery-c43-calibration-clean.jpg',
     href: 'https://www.instagram.com/launchlabs_/',
     copy:
       'The Launch Labs bio explicitly positions the brand around ECU and TCU tuning.',
