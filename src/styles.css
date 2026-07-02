@@ -29,9 +29,7 @@
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    radial-gradient(circle at 75% 15%, rgba(237, 23, 31, 0.08), transparent 28rem),
-    linear-gradient(180deg, #030404 0%, #0b0c0d 48%, #050607 100%);
+  background: linear-gradient(180deg, #030404 0%, #0b0c0d 48%, #050607 100%);
 }
 
 body,
@@ -163,11 +161,12 @@ video {
 
 .hero {
   position: relative;
-  min-height: 88svh;
+  width: 100%;
+  min-height: 92svh;
   overflow: hidden;
   display: grid;
   align-items: end;
-  padding: 116px clamp(18px, 4vw, 58px) 0;
+  padding: 116px clamp(18px, 4vw, 58px) 72px;
 }
 
 .hero-media {
@@ -196,8 +195,8 @@ video {
 .hero-content {
   position: relative;
   z-index: 1;
-  width: min(100%, var(--max));
-  margin: 0 auto 86px;
+  width: 100%;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 650px) minmax(220px, 330px);
   justify-content: space-between;
@@ -313,55 +312,6 @@ video {
   margin-top: 4px;
   color: var(--muted);
   font-size: 0.82rem;
-}
-
-.video-controls {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: auto auto 1fr auto;
-  align-items: center;
-  gap: 18px;
-  width: calc(100% + clamp(36px, 8vw, 116px));
-  margin-left: calc(clamp(18px, 4vw, 58px) * -1);
-  padding: 15px clamp(18px, 4vw, 58px);
-  background: rgba(0, 0, 0, 0.78);
-  border-top: 1px solid var(--line);
-}
-
-.video-button {
-  min-width: 54px;
-  height: 34px;
-  padding: 0 10px;
-  border: 0;
-  color: var(--text);
-  background: transparent;
-  cursor: pointer;
-  text-align: left;
-}
-
-.video-button.text {
-  min-width: 76px;
-  border-left: 1px solid var(--line);
-}
-
-.video-time {
-  color: var(--muted);
-  font-size: 0.9rem;
-  white-space: nowrap;
-}
-
-.video-track {
-  height: 4px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.26);
-}
-
-.video-track span {
-  display: block;
-  width: 0;
-  height: 100%;
-  background: var(--red);
 }
 
 .section {
@@ -510,93 +460,184 @@ video {
 }
 
 .builds-section {
-  width: min(100% - 28px, 1320px);
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  overflow: hidden;
+  padding: clamp(78px, 8vw, 118px) clamp(18px, 4vw, 58px);
+  border-block: 1px solid var(--line);
+  background: #030404;
+}
+
+.builds-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.72) 54%, rgba(0, 0, 0, 0.92)),
+    url("/media/build-shop-week.jpg") center / cover;
+  filter: grayscale(1) contrast(1.28);
+  opacity: 0.58;
+}
+
+.builds-section::after {
+  content: "LMK";
+  position: absolute;
+  top: 34px;
+  right: clamp(20px, 6vw, 96px);
+  color: transparent;
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: clamp(7rem, 18vw, 17rem);
+  font-style: italic;
+  line-height: 0.8;
+  opacity: 0.2;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.22);
+  pointer-events: none;
 }
 
 .builds-head {
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1480px);
+  margin: 0 auto 34px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
   align-items: end;
 }
 
+.builds-head > div {
+  min-width: 0;
+}
+
 .builds-head h2 {
-  font-size: clamp(3.8rem, 8vw, 7.8rem);
+  font-size: clamp(4.8rem, 8.5vw, 8.8rem);
+  line-height: 0.84;
   text-transform: uppercase;
 }
 
 .builds-head p {
-  margin: 16px 0 0;
+  max-width: 510px;
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.builds-head > div:first-child::after {
+  content: "";
+  display: block;
+  width: min(240px, 52vw);
+  height: 2px;
+  margin-top: 20px;
+  background: linear-gradient(90deg, var(--acid) 0 78%, transparent 78% 82%, var(--acid) 82% 86%, transparent 86% 90%, var(--acid) 90% 94%, transparent 94%);
+}
+
+.build-actions {
+  justify-content: flex-end;
+  margin-top: 0;
 }
 
 .build-grid {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1480px);
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-auto-flow: dense;
   gap: 10px;
 }
 
 .build-card {
   position: relative;
-  min-height: 430px;
+  grid-column: span 3;
+  height: clamp(330px, 28vw, 430px);
+  min-height: 0;
   overflow: hidden;
   border: 1px solid var(--line);
-  background: var(--surface);
+  background: #08090a;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
   cursor: pointer;
 }
 
-.build-card.wide {
+.build-card:nth-child(3) {
   grid-column: span 2;
+}
+
+.build-card:nth-child(4) {
+  grid-column: span 4;
+}
+
+.build-card:nth-child(7),
+.build-card:nth-child(8),
+.build-card:nth-child(9) {
+  grid-column: span 6;
+  height: clamp(350px, 32vw, 460px);
 }
 
 .build-card img {
   width: 100%;
   height: 100%;
-  min-height: inherit;
   object-fit: cover;
-  transition: transform 260ms ease;
+  filter: saturate(0.94) contrast(1.12) brightness(0.82);
+  transition:
+    filter 260ms ease,
+    transform 260ms ease;
 }
 
 .build-card:hover img {
   transform: scale(1.035);
+  filter: saturate(1.08) contrast(1.12) brightness(0.96);
 }
 
 .build-shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.84));
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.28) 46%, rgba(0, 0, 0, 0.9)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.36), transparent 48%);
 }
 
 .build-meta {
   position: absolute;
-  top: 16px;
-  left: 16px;
-  padding: 7px 10px;
+  top: 14px;
+  left: 14px;
+  padding: 8px 11px;
   color: var(--text);
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(0, 0, 0, 0.82);
   font-size: 0.72rem;
   font-weight: 900;
   text-transform: uppercase;
 }
 
+.build-meta span {
+  color: var(--red);
+}
+
 .build-copy {
   position: absolute;
-  left: 18px;
-  right: 18px;
-  bottom: 18px;
+  left: clamp(14px, 1.4vw, 22px);
+  right: clamp(14px, 1.4vw, 22px);
+  bottom: clamp(16px, 1.6vw, 24px);
 }
 
 .build-copy h3 {
   margin: 0;
   font-family: Impact, "Arial Black", sans-serif;
-  font-size: clamp(2.1rem, 3vw, 3.2rem);
+  font-size: clamp(2rem, 3vw, 3.35rem);
+  font-style: italic;
   line-height: 0.95;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
 }
 
 .build-copy p {
   margin: 6px 0 12px;
   color: var(--acid);
+  font-size: 0.86rem;
   font-weight: 900;
   text-transform: uppercase;
 }
@@ -836,8 +877,7 @@ textarea:focus {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .process-grid,
-  .build-grid {
+  .process-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -849,6 +889,26 @@ textarea:focus {
   .wide-field,
   .form-status {
     grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 880px) {
+  .build-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .build-card,
+  .build-card:nth-child(3),
+  .build-card:nth-child(4) {
+    grid-column: span 3;
+    height: 360px;
+  }
+
+  .build-card:nth-child(7),
+  .build-card:nth-child(8),
+  .build-card:nth-child(9) {
+    grid-column: span 6;
+    height: 390px;
   }
 }
 
@@ -893,19 +953,10 @@ textarea:focus {
 
   .hero-content {
     grid-template-columns: 1fr;
-    margin-bottom: 46px;
   }
 
   .hero h1 {
     font-size: clamp(4.1rem, 18vw, 6.4rem);
-  }
-
-  .video-controls {
-    grid-template-columns: auto auto 1fr;
-  }
-
-  .video-button.text {
-    display: none;
   }
 
   .intro-line {
@@ -924,7 +975,12 @@ textarea:focus {
   }
 
   .builds-head {
-    display: block;
+    grid-template-columns: 1fr;
+    padding-left: 8px;
+  }
+
+  .builds-head h2 {
+    max-width: 7ch;
   }
 
   .build-actions {
@@ -948,6 +1004,7 @@ textarea:focus {
 @media (max-width: 560px) {
   .hero {
     min-height: 86svh;
+    padding-bottom: 52px;
   }
 
   .hero-actions,
@@ -960,14 +1017,6 @@ textarea:focus {
     width: 100%;
   }
 
-  .video-controls {
-    gap: 10px;
-  }
-
-  .video-time {
-    font-size: 0.78rem;
-  }
-
   .intro-line,
   .service-rail,
   .process-grid,
@@ -977,9 +1026,13 @@ textarea:focus {
   }
 
   .build-card,
-  .build-card.wide {
-    grid-column: auto;
-    min-height: 390px;
+  .build-card:nth-child(3),
+  .build-card:nth-child(4),
+  .build-card:nth-child(7),
+  .build-card:nth-child(8),
+  .build-card:nth-child(9) {
+    grid-column: 1;
+    height: 390px;
   }
 
   .section h2,

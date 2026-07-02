@@ -169,10 +169,10 @@ function icon(name) {
 
 function buildCard(build, index) {
   return `
-    <article class="build-card ${index === 0 || index === 3 || index === 6 ? 'wide' : ''}" data-build-index="${index}">
+    <article class="build-card" data-build-index="${index}">
       <img src="${build.image}" alt="${build.title} - ${build.subtitle}" loading="${index < 3 ? 'eager' : 'lazy'}" />
       <div class="build-shade"></div>
-      <div class="build-meta">/// ${build.category}</div>
+      <div class="build-meta"><span aria-hidden="true">///</span> ${build.category}</div>
       <div class="build-copy">
         <h3>${build.title}</h3>
         <p>${build.subtitle}</p>
@@ -207,6 +207,7 @@ function render() {
         <div class="hero-media">
           <video
             id="hero-video"
+            aria-label="Corvette Z06 F1 exhaust hero video"
             src="/media/hero-z06-f1-exhaust.mp4"
             poster="/media/hero-z06-f1-exhaust.jpg"
             autoplay
@@ -232,14 +233,6 @@ function render() {
               <span>149 posts from @lmkgarage</span>
             </div>
           </div>
-        </div>
-        <div class="video-controls" aria-label="Hero video controls">
-          <button class="video-button" type="button" aria-label="Pause hero video" data-video-toggle>
-            <span data-play-icon>Pause</span>
-          </button>
-          <span class="video-time" data-video-time>0:00 / 0:34</span>
-          <div class="video-track" aria-hidden="true"><span data-video-progress></span></div>
-          <button class="video-button text" type="button" aria-label="Mute hero video" data-video-mute>Muted</button>
         </div>
       </section>
 
@@ -414,11 +407,6 @@ function setupInteractions() {
   const header = document.querySelector('[data-header]');
   const nav = document.querySelector('[data-nav]');
   const menuToggle = document.querySelector('[data-menu-toggle]');
-  const video = document.querySelector('#hero-video');
-  const playButton = document.querySelector('[data-video-toggle]');
-  const muteButton = document.querySelector('[data-video-mute]');
-  const progress = document.querySelector('[data-video-progress]');
-  const time = document.querySelector('[data-video-time]');
   const dialog = document.querySelector('[data-build-dialog]');
   const form = document.querySelector('[data-quote-form]');
 
@@ -436,36 +424,6 @@ function setupInteractions() {
       nav.classList.remove('is-open');
       menuToggle.setAttribute('aria-expanded', 'false');
     });
-  });
-
-  const formatTime = (value) => {
-    if (!Number.isFinite(value)) return '0:00';
-    const minutes = Math.floor(value / 60);
-    const seconds = Math.floor(value % 60).toString().padStart(2, '0');
-    return `${minutes}:${seconds}`;
-  };
-
-  const updateVideo = () => {
-    const duration = video.duration || 34;
-    const current = video.currentTime || 0;
-    progress.style.width = `${Math.min(100, (current / duration) * 100)}%`;
-    time.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
-    playButton.querySelector('[data-play-icon]').textContent = video.paused ? 'Play' : 'Pause';
-  };
-
-  video.addEventListener('timeupdate', updateVideo);
-  video.addEventListener('loadedmetadata', updateVideo);
-  playButton.addEventListener('click', () => {
-    if (video.paused) {
-      video.play();
-    } else {
-      video.pause();
-    }
-    updateVideo();
-  });
-  muteButton.addEventListener('click', () => {
-    video.muted = !video.muted;
-    muteButton.textContent = video.muted ? 'Muted' : 'Sound on';
   });
 
   const openBuild = (index) => {
@@ -504,7 +462,6 @@ function setupInteractions() {
     form.classList.add('is-complete');
   });
 
-  updateVideo();
 }
 
 render();
