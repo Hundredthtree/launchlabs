@@ -109,13 +109,13 @@ const builds = [
       'A public Launch Labs reel lists in-house ECU unlock locations in Houston, Villa Park, Naples, and Boise.',
   },
   {
-    title: 'Aston / Lambo',
-    subtitle: 'Exotic platform highlights',
+    title: 'Exotic Road Tune',
+    subtitle: 'Supercar platform highlights',
     category: 'Exotics',
     image: '/media/launchlabs/gallery-mclaren-road-clean.jpg',
     href: 'https://www.instagram.com/launchlabs_/',
     copy:
-      'Launch Labs profile highlights include Aston Martin and Lamborghini platform categories.',
+      'Launch Labs public content and profile highlights position the shop around exotic performance platforms.',
   },
   {
     title: 'McLaren Road Tune',
