@@ -340,8 +340,13 @@ video {
 }
 
 .intro-line span {
-  padding: 18px 0;
+  min-height: 52px;
+  padding: 18px 12px;
   border-right: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .intro-line span:last-child {
@@ -679,8 +684,8 @@ video {
   width: 100%;
   padding-bottom: 0;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.62)),
-    url("/media/launchlabs/shop-car.jpg") center / cover;
+    linear-gradient(90deg, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.58)),
+    url("/media/launchlabs/amg-wheel-sedan.jpg") center 62% / cover;
   border-top: 1px solid var(--line);
 }
 
@@ -963,6 +968,10 @@ textarea:focus {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .intro-line span:nth-child(2n) {
+    border-right: 0;
+  }
+
   .section {
     padding: 70px 0;
   }
@@ -1023,6 +1032,15 @@ textarea:focus {
   .build-grid,
   .quote-form {
     grid-template-columns: 1fr;
+  }
+
+  .intro-line span {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .intro-line span:last-child {
+    border-bottom: 0;
   }
 
   .build-card,
