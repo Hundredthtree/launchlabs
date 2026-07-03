@@ -30,19 +30,31 @@ const services = [
     name: 'BMW / M Platforms',
     detail: 'BMW and M-platform tuning focus, including B58 content highlighted on the Launch Labs profile.',
     icon: 'chip',
-    mark: 'm',
+    logo: {
+      src: '/media/launchlabs/logo-bmw-m.svg',
+      alt: 'BMW M logo',
+      className: 'platform-logo-m',
+    },
   },
   {
     name: 'AMG Platforms',
     detail: 'Mercedes-AMG platform support across calibration, diagnostics, and performance packages.',
     icon: 'gauge',
-    mark: 'amg',
+    logo: {
+      src: '/media/launchlabs/logo-amg.svg',
+      alt: 'AMG logo',
+      className: 'platform-logo-amg',
+    },
   },
   {
     name: 'Audi RS Platforms',
     detail: 'Audi RS platform tuning support for sharper response, power delivery, and supporting hardware.',
     icon: 'spray',
-    mark: 'rs',
+    logo: {
+      src: '/media/launchlabs/logo-audi-rs.svg',
+      alt: 'Audi RS logo',
+      className: 'platform-logo-rs',
+    },
   },
   {
     name: 'Diagnostics',
@@ -171,29 +183,12 @@ function icon(name) {
   return `<span class="icon icon-${name}">${icons[name] || icons.spark}</span>`;
 }
 
-function brandMark(name) {
-  const marks = {
-    m: `
-      <span class="platform-mark platform-mark-m" role="img" aria-label="BMW M logo">
-        <span class="m-bars" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span class="m-letter" aria-hidden="true">M</span>
-      </span>
-    `,
-    amg: `
-      <span class="platform-mark platform-mark-amg" role="img" aria-label="AMG logo">
-        <span class="amg-speed" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span>
-        <span class="amg-word" aria-hidden="true">AMG</span>
-      </span>
-    `,
-    rs: `
-      <span class="platform-mark platform-mark-rs" role="img" aria-label="Audi RS logo">
-        <span class="rs-flag" aria-hidden="true"></span>
-        <span class="rs-word" aria-hidden="true">RS</span>
-      </span>
-    `,
-  };
-
-  return marks[name] || '';
+function platformLogo(logo) {
+  return `
+    <span class="platform-logo-wrap">
+      <img class="platform-logo ${logo.className}" src="${logo.src}" alt="${logo.alt}" loading="eager" />
+    </span>
+  `;
 }
 
 function buildCard(build, index) {
@@ -290,7 +285,7 @@ function render() {
             .map(
               (service) => `
                 <article class="service-item">
-                  ${service.mark ? brandMark(service.mark) : icon(service.icon)}
+                  ${service.logo ? platformLogo(service.logo) : icon(service.icon)}
                   <div>
                     <h3>${service.name}</h3>
                     <p>${service.detail}</p>

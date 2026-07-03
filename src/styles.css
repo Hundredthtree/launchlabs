@@ -421,112 +421,32 @@ video {
   stroke-linejoin: round;
 }
 
-.platform-mark {
-  display: inline-flex;
+.platform-logo-wrap {
+  display: flex;
   align-items: center;
   height: 44px;
   margin-bottom: 22px;
-  color: var(--text);
-  font-family: Impact, "Arial Black", sans-serif;
-  font-style: italic;
-  line-height: 1;
-  text-transform: uppercase;
 }
 
-.platform-mark-m {
-  gap: 8px;
+.platform-logo {
+  width: auto;
+  max-width: 132px;
+  max-height: 36px;
+  object-fit: contain;
+  object-position: left center;
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.14));
 }
 
-.m-bars {
-  display: inline-grid;
-  grid-template-columns: repeat(3, 9px);
-  gap: 3px;
-  height: 28px;
-  transform: skew(-18deg);
+.platform-logo-m {
+  width: 92px;
 }
 
-.m-bars span {
-  display: block;
+.platform-logo-amg {
+  width: 116px;
 }
 
-.m-bars span:nth-child(1) {
-  background: #55b9ed;
-}
-
-.m-bars span:nth-child(2) {
-  background: #263fb6;
-}
-
-.m-bars span:nth-child(3) {
-  background: #ed171f;
-}
-
-.m-letter {
-  font-size: 2.3rem;
-  transform: skew(-8deg);
-  text-shadow: 0 0 18px rgba(255, 255, 255, 0.2);
-}
-
-.platform-mark-amg {
-  gap: 9px;
-}
-
-.amg-speed {
-  display: inline-grid;
-  grid-template-columns: repeat(5, 5px);
-  gap: 3px;
-  align-items: end;
-  height: 23px;
-  transform: skew(-24deg);
-}
-
-.amg-speed span {
-  display: block;
-  background: linear-gradient(180deg, #ffffff, #a8aaa9);
-}
-
-.amg-speed span:nth-child(1) {
-  height: 8px;
-}
-
-.amg-speed span:nth-child(2) {
-  height: 12px;
-}
-
-.amg-speed span:nth-child(3) {
-  height: 16px;
-}
-
-.amg-speed span:nth-child(4) {
-  height: 20px;
-}
-
-.amg-speed span:nth-child(5) {
-  height: 23px;
-}
-
-.amg-word {
-  font-size: 1.8rem;
-  transform: skew(-8deg);
-}
-
-.platform-mark-rs {
-  gap: 7px;
-}
-
-.rs-flag {
-  width: 38px;
-  height: 25px;
-  background: linear-gradient(135deg, #ed171f 0 62%, #9f060c 62% 100%);
-  clip-path: polygon(17% 0, 100% 0, 83% 100%, 0 100%);
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.1);
-}
-
-.rs-word {
-  color: #f7f7f2;
-  font-size: 2rem;
-  transform: skew(-10deg);
-  text-shadow: 0 0 18px rgba(255, 255, 255, 0.2);
+.platform-logo-rs {
+  width: 78px;
 }
 
 .service-item h3,
