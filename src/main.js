@@ -193,7 +193,7 @@ function platformLogo(logo) {
 
 function buildCard(build, index) {
   return `
-    <article class="build-card" data-build-index="${index}">
+    <article class="build-card" data-build-index="${index}" data-animate="rise">
       <img src="${build.image}" alt="${build.title} - ${build.subtitle}" loading="${index < 3 ? 'eager' : 'lazy'}" />
       <div class="build-shade"></div>
       <div class="build-meta"><span aria-hidden="true">///</span> ${build.category}</div>
@@ -241,7 +241,7 @@ function render() {
           <div class="video-scrim"></div>
         </div>
         <div class="hero-content">
-          <div class="hero-text">
+          <div class="hero-text" data-animate="left">
             <h1 id="hero-title">Launch Labs</h1>
             <p>ECU and TCU tuning, same-day unlocks, premium maintenance, performance parts, and platform-focused calibration.</p>
             <div class="hero-actions">
@@ -249,7 +249,7 @@ function render() {
               <a class="button button-secondary" href="#builds">View performance work</a>
             </div>
           </div>
-          <div class="hero-panel" aria-label="Instagram profile snapshot">
+          <div class="hero-panel" aria-label="Instagram profile snapshot" data-animate="right">
             <img src="/media/launchlabs/profile.jpg" alt="Launch Labs Instagram profile image" />
             <div>
               <strong>ECU & TCU tuning</strong>
@@ -260,16 +260,16 @@ function render() {
       </section>
 
       <section class="section intro-band" aria-label="Profile details">
-        <div class="intro-line">
-          <span>ECU & TCU Tuning</span>
-          <span>2,012 followers</span>
-          <span>31 following</span>
-          <span>4 unlock locations</span>
+        <div class="intro-line" data-stagger-group>
+          <span data-animate="rise">ECU & TCU Tuning</span>
+          <span data-animate="rise">2,012 followers</span>
+          <span data-animate="rise">31 following</span>
+          <span data-animate="rise">4 unlock locations</span>
         </div>
       </section>
 
       <section class="section services-section" id="services" aria-labelledby="services-title">
-        <div class="section-head split">
+        <div class="section-head split" data-animate="rise">
           <div>
             <p class="section-pretitle">What We Do</p>
             <h2 id="services-title">Calibration, unlocks, and performance support.</h2>
@@ -279,11 +279,11 @@ function render() {
             same-day unlocks, and platform-specific performance work.
           </p>
         </div>
-        <div class="service-rail">
+        <div class="service-rail" data-stagger-group>
           ${services
             .map(
               (service) => `
-                <article class="service-item">
+                <article class="service-item" data-animate="rise">
                   ${service.logo ? platformLogo(service.logo) : icon(service.icon)}
                   <div>
                     <h3>${service.name}</h3>
@@ -297,15 +297,15 @@ function render() {
       </section>
 
       <section class="section process-section" id="process" aria-labelledby="process-title">
-        <div class="section-head split">
+        <div class="section-head split" data-animate="rise">
           <h2 id="process-title">From unlock to validated tune.</h2>
           <p>Clear intake, platform-aware tuning, maintenance checks, and final validation before handoff.</p>
         </div>
-        <div class="process-grid">
+        <div class="process-grid" data-stagger-group>
           ${processSteps
             .map(
               ([number, title, copy]) => `
-                <article class="process-step">
+                <article class="process-step" data-animate="rise">
                   <span>${number}</span>
                   <h3>${title}</h3>
                   <p>${copy}</p>
@@ -317,7 +317,7 @@ function render() {
       </section>
 
       <section class="section builds-section" id="builds" aria-labelledby="builds-title">
-        <div class="section-head builds-head">
+        <div class="section-head builds-head" data-animate="rise">
           <div>
             <p class="section-pretitle">Launch Labs</p>
             <h2 id="builds-title">Recent builds</h2>
@@ -328,24 +328,24 @@ function render() {
             <button class="button button-secondary compact" type="button" data-first-build>See build details</button>
           </div>
         </div>
-        <div class="build-grid">
+        <div class="build-grid" data-stagger-group>
           ${builds.map(buildCard).join('')}
         </div>
       </section>
 
       <section class="section source-section" aria-labelledby="source-title">
-        <div>
+        <div data-animate="left">
           <p class="section-pretitle">Source-backed content</p>
           <h2 id="source-title">Built from the Launch Labs feed.</h2>
         </div>
-        <ul>
-          ${sourceNotes.map((note) => `<li>${note}</li>`).join('')}
+        <ul data-stagger-group>
+          ${sourceNotes.map((note) => `<li data-animate="rise">${note}</li>`).join('')}
         </ul>
       </section>
 
       <section class="section contact-section" id="contact" aria-labelledby="contact-title">
         <div class="contact-hero">
-          <div>
+          <div data-animate="left">
             <p class="section-pretitle">Launch Labs</p>
             <h2 id="contact-title">Ready for the next tune?</h2>
             <p>
@@ -353,40 +353,40 @@ function render() {
               to DM for tuning, unlock, maintenance, and performance appointments.
             </p>
           </div>
-          <div class="contact-service-list" aria-label="Services offered">
-            ${services.map((service) => `<span>${service.name}</span>`).join('')}
+          <div class="contact-service-list" aria-label="Services offered" data-stagger-group>
+            ${services.map((service) => `<span data-animate="rise">${service.name}</span>`).join('')}
           </div>
         </div>
 
-        <form class="quote-form" data-quote-form>
-          <div class="form-title">
+        <form class="quote-form" data-quote-form data-stagger-group>
+          <div class="form-title" data-animate="rise">
             <h3>Let us build the request.</h3>
             <p>This form prepares a tune brief for Launch Labs. Public reel copy lists unlock locations in Houston, Villa Park, Naples, and Boise.</p>
           </div>
-          <label>
+          <label data-animate="rise">
             <span>Service needed</span>
             <select name="service" required>
               <option value="">Select a service</option>
               ${services.map((service) => `<option>${service.name}</option>`).join('')}
             </select>
           </label>
-          <label>
+          <label data-animate="rise">
             <span>Vehicle</span>
             <input name="vehicle" type="text" placeholder="Year / Make / Model" required />
           </label>
-          <label>
+          <label data-animate="rise">
             <span>Timeline</span>
             <input name="timeline" type="text" placeholder="ASAP / flexible / date" required />
           </label>
-          <label>
+          <label data-animate="rise">
             <span>Contact info</span>
             <input name="contact" type="text" placeholder="Name and email or Instagram" required />
           </label>
-          <label class="wide-field">
+          <label class="wide-field" data-animate="rise">
             <span>Build notes</span>
             <textarea name="notes" rows="4" placeholder="Current mods, goals, symptoms, transport needs, or quote details"></textarea>
           </label>
-          <div class="form-actions">
+          <div class="form-actions" data-animate="rise">
             <button class="button button-primary" type="submit">Request a quote</button>
             <a class="button button-secondary" href="https://www.instagram.com/launchlabs_/" target="_blank" rel="noreferrer">DM @launchlabs_</a>
           </div>
@@ -395,7 +395,7 @@ function render() {
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" data-animate="rise">
       <div class="footer-brand">
         <img src="/media/launchlabs/launch-labs-logo.png" alt="Launch Labs" />
         <p>ECU and TCU tuning. Performance driven.</p>
@@ -486,5 +486,41 @@ function setupInteractions() {
 
 }
 
+function setupScrollAnimations() {
+  const animatedItems = Array.from(document.querySelectorAll('[data-animate]'));
+  if (!animatedItems.length) return;
+
+  document.documentElement.classList.add('has-scroll-animations');
+
+  document.querySelectorAll('[data-stagger-group]').forEach((group) => {
+    group.querySelectorAll('[data-animate]').forEach((item, index) => {
+      item.style.setProperty('--reveal-delay', `${Math.min(index * 70, 420)}ms`);
+    });
+  });
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    animatedItems.forEach((item) => item.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      rootMargin: '0px 0px -12% 0px',
+      threshold: 0.16,
+    }
+  );
+
+  animatedItems.forEach((item) => observer.observe(item));
+}
+
 render();
 setupInteractions();
+setupScrollAnimations();
